@@ -1,0 +1,8 @@
+Updated /etc/apache2/apache2.conf with
+
+
+Alias "/nc-music-rocks" "/home/pi/repos/nc-music-rocks/"
+<Directory "/home/pi/repos/nc-music-rocks">
+    Require all granted
+</Directory>
+
