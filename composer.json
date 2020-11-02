@@ -1,0 +1,16 @@
+{
+    "name": "mtickle/nc-music-rocks",
+    "type": "library",
+    "license": "MIT",
+    "homepage": "https://github.com/mtickle/nc-music-rocks",
+    "description": "nc-music-rocks",
+    "authors": [
+        {
+            "name": "Mike Tickle",
+            "email": "mtickle@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.2"
+    }
+}
