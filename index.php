@@ -18,6 +18,10 @@
     <link href="jumbotron.css" rel="stylesheet">
   </head>
 
+<?php
+include 'db_connect.php';
+?>
+
   <body>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
   <a class="navbar-brand" href="#">Navbar</a>
@@ -64,6 +68,11 @@
   </div>
 
   <div class="container">
+
+
+
+
+
     <!-- Example row of columns -->
     <div class="row">
       <div class="col-md-4">
