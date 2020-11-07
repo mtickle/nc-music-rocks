@@ -3,7 +3,7 @@
 <?php
   include 'db_connect.php';
   $id = $_GET['id'];      
-  $sql_query="SELECT id,name,category,about,bio,link FROM `nc-music-rocks` where id = $id";
+  $sql_query="CALL getListing($id)";
   $resultset = mysqli_query($conn, $sql_query) or die("database error:". mysqli_error($conn));
   $row = $resultset->fetch_assoc();
 ?>
@@ -43,6 +43,7 @@
 
 
 <div class="card">
+<img class="card-img-top" src="<?php echo $row["coversource"]; ?>" alt="Card image cap">
   <div class="card-body">
     <h5 class="card-title"><?php echo $row["name"]; ?></h5>
     <h6 class="card-subtitle mb-2 text-muted"><?php echo $row["category"]; ?></h6>

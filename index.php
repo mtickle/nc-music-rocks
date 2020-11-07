@@ -39,17 +39,17 @@ include 'db_connect.php';
 
 <ul class="list-group">
 <?php			
-			$sql_query="SELECT id,name,category,about,link FROM `nc-music-rocks` order by name ASC";
+      $sql_query="CALL `getListings`();";
 			$resultset = mysqli_query($conn, $sql_query) or die("database error:". mysqli_error($conn));
 			while($rows = mysqli_fetch_array($resultset) ) { ?>
 
 <a href="detail.php?id=<?php echo $rows["id"]; ?>" class="list-group-item list-group-item-action">
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1"><?php echo $rows["name"]; ?></h5>
-      <!-- <small class="text-muted"><?php echo $rows["name"]; ?></small> -->
     </div>
     <p class="mb-1"><?php echo $rows["about"]; ?></p>
     <small class="text-muted"><?php echo $rows["category"]; ?></small>
+
   </a>
 
   <?php } ?>
