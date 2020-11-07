@@ -10,12 +10,11 @@ if(file_exists(".env")) {
     $edbuser = $_ENV['nmr_db_user'];
     $edbpass = $_ENV["nmr_db_password"]; 
     $edbname = $_ENV["nmr_db_database"]; 
-
 } else {
-    $edbhost = env('nmr_db_host');
-    $edbuser = env('nmr_db_user');
-    $edbpass = env("nmr_db_password"); 
-    $edbname = env("nmr_db_database"); 
+    $edbhost = getenv('nmr_db_host');
+    $edbuser = getenv('nmr_db_user');
+    $edbpass = getenv("nmr_db_password"); 
+    $edbname = getenv("nmr_db_database"); 
 };
 
 
