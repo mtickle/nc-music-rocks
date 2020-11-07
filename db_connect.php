@@ -3,7 +3,6 @@
 
 $hostname =  gethostname();
 
-
 if ($hostname="raspberrypi") {
     $edbhost = "localhost";
     $edbuser = "query_user";
@@ -33,7 +32,7 @@ if ($hostname="raspberrypi") {
 //     $edbname = getenv("nmr_db_database"); 
 // };
 
-// echo $edbhost . " - " . $edbuser . " - " . $edbpass . " - " . $edbname;
+ echo $hostname . " - " . $edbhost . " - " . $edbuser . " - " . $edbpass . " - " . $edbname;
 
 
 $conn = mysqli_connect($edbhost, $edbuser, $edbpass) or die ('Error connecting to mysql');  
