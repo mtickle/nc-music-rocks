@@ -46,7 +46,7 @@ include 'db_connect.php';
 <a href="detail.php?id=<?php echo $rows["id"]; ?>" class="list-group-item list-group-item-action">
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1"><?php echo $rows["name"]; ?></h5>
-      <small class="text-muted">3 days ago</small>
+      <!-- <small class="text-muted"><?php echo $rows["name"]; ?></small> -->
     </div>
     <p class="mb-1"><?php echo $rows["about"]; ?></p>
     <small class="text-muted"><?php echo $rows["category"]; ?></small>
