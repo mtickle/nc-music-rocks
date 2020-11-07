@@ -12,9 +12,6 @@
   </head>
 
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 include 'db_connect.php';
 ?>
 
@@ -36,31 +33,27 @@ include 'db_connect.php';
 <main role="main" class="flex-shrink-0">
   <div class="container">  
   
+  <?php			
+      $id = $_GET['id'];      
+      $sql_query="SELECT id,name,category,about,bio,link FROM `nc-music-rocks` where id = $id";
+      //$resultset = mysqli_query($conn, $sql_query) or die("database error:". mysqli_error($conn));
+      $resultset = mysqli_query($conn, $sql_query) or die("database error:". mysqli_error($conn));
+      $row = $resultset->fetch_assoc();
+?>
 
-<ul class="list-group">
-<?php			
-			$sql_query="SELECT id,name,category,about,link FROM `nc-music-rocks` order by name ASC";
-			$resultset = mysqli_query($conn, $sql_query) or die("database error:". mysqli_error($conn));
-			while($rows = mysqli_fetch_array($resultset) ) { ?>
+<h3><?php echo $row["name"]; ?></h3>
+<p>
+<?php echo $row["about"]; ?>
+</p>
+<p>
+<?php echo $row["bio"]; ?>
+</p>
 
-<a href="detail.php?id=<?php echo $rows["id"]; ?>" class="list-group-item list-group-item-action">
-    <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1"><?php echo $rows["name"]; ?></h5>
-      <small class="text-muted">3 days ago</small>
-    </div>
-    <p class="mb-1"><?php echo $rows["about"]; ?></p>
-    <small class="text-muted"><?php echo $rows["category"]; ?></small>
-  </a>
+<a href="<?php echo $row["link"]; ?>">View on Facebook</a>
 
-  <?php } ?>
-
-</ul>
-
-
-    
-
-  </div>
 </main>
+
+<br /><br /><br /><br />
 
 <footer class="container">
   <p>&copy; Company 2017-2019</p>

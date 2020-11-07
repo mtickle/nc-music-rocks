@@ -14,12 +14,9 @@ $dotenv->load();
 //$dotenv = new Dotenv();
 //$dotenv->load(__DIR__.'/.env');
 
-$cdbhost = $_ENV['nmr_db_host'];
-$cdbuser = $_ENV['nmr_db_user'];
-
-
-
-// $dbpass = getenv("nmr_db_password"); 
+$edbhost = $_ENV['nmr_db_host'];
+$edbuser = $_ENV['nmr_db_user'];
+$edbpass = $_ENV("nmr_db_password"); 
 // $conn = mysqli_connect($dbhost, $dbuser, $dbpass) or die ('Error connecting to mysql');  
  //$dbname = getenv("nmr_db_database");  
 // $connection = mysqli_select_db($conn, $dbname); 
@@ -30,16 +27,16 @@ $cdbuser = $_ENV['nmr_db_user'];
 //$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 //$dotenv->load();
 
-$dbhost = 'localhost';  
-$dbuser = 'query_user';  
-$dbpass = "tiger007";  
+// $dbhost = 'localhost';  
+// $dbuser = 'query_user';  
+// $dbpass = "tiger007";  
 
 // echo "----";
 // echo $cdbuser;
 // echo $dbuser;
 // echo "----";
 
-$conn = mysqli_connect($cdbhost, $cdbuser, $dbpass) or die ('Error connecting to mysql');  
+$conn = mysqli_connect($edbhost, $edbuser, $edbpass) or die ('Error connecting to mysql');  
 $dbname = 'gj75npjq39icxbe1';  
 $connection = mysqli_select_db($conn, $dbname); 
 
