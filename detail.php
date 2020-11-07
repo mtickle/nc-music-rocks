@@ -1,4 +1,13 @@
 <!doctype html>
+
+<?php
+  include 'db_connect.php';
+  $id = $_GET['id'];      
+  $sql_query="SELECT id,name,category,about,bio,link FROM `nc-music-rocks` where id = $id";
+  $resultset = mysqli_query($conn, $sql_query) or die("database error:". mysqli_error($conn));
+  $row = $resultset->fetch_assoc();
+?>
+
 <html lang="en">
 <head>
     <!-- Required meta tags -->
@@ -8,19 +17,17 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <title>NC-MUSIC-ROCKS // <?php echo $row["name"]; ?></title>
   </head>
 
-<?php
-include 'db_connect.php';
-?>
+
 
   <body>
 
   <header>
   <!-- Fixed navbar -->
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <a class="navbar-brand" href="#">NC-MUSIC-ROCKS</a>
+    <a class="navbar-brand" href="index.php">NC-MUSIC-ROCKS</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -33,23 +40,21 @@ include 'db_connect.php';
 <main role="main" class="flex-shrink-0">
   <div class="container">  
   
-  <?php			
-      $id = $_GET['id'];      
-      $sql_query="SELECT id,name,category,about,bio,link FROM `nc-music-rocks` where id = $id";
-      //$resultset = mysqli_query($conn, $sql_query) or die("database error:". mysqli_error($conn));
-      $resultset = mysqli_query($conn, $sql_query) or die("database error:". mysqli_error($conn));
-      $row = $resultset->fetch_assoc();
-?>
 
-<h3><?php echo $row["name"]; ?></h3>
-<p>
-<?php echo $row["about"]; ?>
-</p>
-<p>
-<?php echo $row["bio"]; ?>
-</p>
 
-<a href="<?php echo $row["link"]; ?>">View on Facebook</a>
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title"><?php echo $row["name"]; ?></h5>
+    <h6 class="card-subtitle mb-2 text-muted"><?php echo $row["category"]; ?></h6>
+    <p class="card-text">
+        <?php echo $row["about"]; ?>
+        <?php echo $row["bio"]; ?>
+        </p>
+    <a href="<?php echo $row["link"]; ?>" class="card-link">View on Facebook</a>
+    <a href="#" class="card-link">Goes Nowhere</a>
+    <a href="index.php" class="card-link">Back to List</a>
+  </div>
+</div>
 
 </main>
 
