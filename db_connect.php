@@ -3,7 +3,7 @@
 
 $hostname =  gethostname();
 
-if ($hostname="raspberrypi") {
+if ($hostname=="raspberrypi") {
     $edbhost = "localhost";
     $edbuser = "query_user";
     $edbpass = "tiger007"; 
