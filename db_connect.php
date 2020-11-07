@@ -1,5 +1,6 @@
 <?php
 
+echo gethostname();
 
 require __DIR__ . '/vendor/autoload.php';
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__.'/');
@@ -17,6 +18,7 @@ if(file_exists(".env")) {
     $edbname = getenv("nmr_db_database"); 
 };
 
+echo $edbhost;
 
 
 $conn = mysqli_connect($edbhost, $edbuser, $edbpass) or die ('Error connecting to mysql');  
